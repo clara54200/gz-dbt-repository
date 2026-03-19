@@ -1,0 +1,16 @@
+ sources:
+  - name: gz
+    schema: gz_raw_data
+    loader: bigquery
+    description: données_brut
+    tables:
+      - name: sales
+        identifier: raw_gz_sales
+        columns:
+          - name: pdt_id
+            description: la ref des produits 
+
+      - name: product
+        identifier: raw_gz_product
+      - name: ship
+        identifier: raw_gz_ship

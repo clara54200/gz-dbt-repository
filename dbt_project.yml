@@ -1,0 +1,29 @@
+# Nom du projet (doit correspondre au nom du dossier racine)
+name: 'my_new_project'
+version: '1.0.0'
+config-version: 2
+
+# Nom du profil de connexion BigQuery (souvent 'default')
+profile: 'default'
+
+# Configuration des modèles
+models:
+  my_new_project:
+    # Par défaut, tout est une vue
+    +materialized: view
+
+    staging:
+      # Dossier staging : reste en vues
+      +materialized: view
+
+    intermediate:
+      # Dossier intermediate : reste en vues
+      +materialized: view
+
+    mart:
+      # Dossier mart : on transforme tout en TABLES pour la performance
+      +materialized: table
+      
+      finance:
+        # Dossier spécifique finance : on change le dataset cible
+        +schema: finance
