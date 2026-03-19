@@ -1,10 +1,16 @@
  sources:
-  - name: gz_raw_data
-    database: gz_raw_data
-    schema: "{{ env_var('RAW_DATASET', 'gz_raw_data') }}"
+  - name: gz
+    schema: gz_raw_data
     loader: bigquery
     description: données_brut
     tables:
-      - name: raw_gz_sales
-      - name: raw_gz_product
-      - name: raw_gz_ship
+      - name: sales
+        identifier: raw_gz_sales
+        columns:
+          - name: pdt_id
+            description: la ref des produits 
+
+      - name: product
+        identifier: raw_gz_product
+      - name: ship
+        identifier: raw_gz_ship
